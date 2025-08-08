@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useState } from 'react';
@@ -19,19 +20,19 @@ const galleryItems = [
   {
     title: 'Single Plot Concept',
     description: 'A traditional single-floor rural home in the middle of a 10,000 sq ft green plot with surrounding trees and a small garden.',
-    src: 'https://placehold.co/1200x675.png',
+    src: 'https://placehold.co/1200/675',
     aiHint: 'rural home garden'
   },
   {
     title: 'Organic Garden Close-up',
     description: 'A close-up shot of a fresh organic vegetable garden with wooden fencing and fruit trees in the background.',
-    src: 'https://placehold.co/1200x675.png',
+    src: 'https://placehold.co/1200/675',
     aiHint: 'organic garden'
   },
   {
     title: 'Health & Nature Scene',
     description: 'A family harvesting fresh vegetables in a green farmland, surrounded by fruit and timber trees.',
-    src: 'https://placehold.co/1200x675.png',
+    src: 'https://placehold.co/1200/675',
     aiHint: 'family harvesting vegetables'
   },
 ];
@@ -60,9 +61,8 @@ export default function GalleryPage() {
                       <Image
                         src={item.src}
                         alt={item.title}
-                        layout="fill"
-                        objectFit="cover"
-                        className="group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                         data-ai-hint={item.aiHint}
                       />
                     </div>
@@ -78,12 +78,13 @@ export default function GalleryPage() {
 
           {selectedImage && (
               <DialogContent className="max-w-4xl p-0">
+                  <DialogTitle className="sr-only">{selectedImage.title}</DialogTitle>
                   <div className="relative aspect-video">
                       <Image
                           src={selectedImage.src}
                           alt={selectedImage.title}
-                          layout="fill"
-                          objectFit="contain"
+                          fill
+                          className="object-contain"
                       />
                   </div>
               </DialogContent>
