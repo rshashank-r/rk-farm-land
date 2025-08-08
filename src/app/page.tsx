@@ -70,7 +70,7 @@ export default function Home() {
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
     <Image
-      src="https://placehold.co/1920x1080.png"
+      src="/images/full_estate_view.jpeg"
       alt="Aerial view of lush farmland"
       layout="fill"
       objectFit="cover"

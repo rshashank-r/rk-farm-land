@@ -5,7 +5,7 @@ const galleryItems = [
   {
     title: 'Full Estate View',
     description: 'An aerial view of a lush, planned farmland estate with traditional houses, surrounded by coconut, mango, teak, and sandalwood trees.',
-    src: 'https://placehold.co/1200x675.png',
+    src: '/images/full_estate_view.jpeg',
     aiHint: 'farmland estate aerial'
   },
   {
