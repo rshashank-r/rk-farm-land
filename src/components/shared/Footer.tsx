@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
         <div className="text-center sm:text-left">
           <p className="text-lg font-headline font-semibold text-primary">RK FARM LAND</p>
-          <p className="text-sm text-muted-foreground">Peace. Wealth. Health.</p>
+          <p className="text-sm text-muted-foreground">Peace. Health. Wealth.</p>
         </div>
         <div className="text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} RK FARM LAND. All Rights Reserved.</p>

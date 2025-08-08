@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Home as HomeIcon, Zap, Milestone, Sprout, ShieldCheck, Leaf, DollarSign, HeartPulse, ArrowRight } from 'lucide-react';
+import { Home as HomeIcon, Zap, Milestone, Sprout, Leaf, DollarSign, HeartPulse, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import GoogleMap from '@/components/GoogleMap';
@@ -24,16 +24,6 @@ const promiseItems = [
     ] 
   },
   { 
-    icon: DollarSign, 
-    title: "Wealth", 
-    points: [
-      "Coconut trees for steady yearly income.", 
-      "Mango trees for seasonal profit.", 
-      "Teak and sandalwood for high-value long-term gains.", 
-      "Organic vegetable farming for extra income."
-    ] 
-  },
-  { 
     icon: HeartPulse, 
     title: "Health", 
     points: [
@@ -43,12 +33,22 @@ const promiseItems = [
       "Outdoor space for daily activity and sunlight."
     ] 
   },
+  { 
+    icon: DollarSign, 
+    title: "Wealth", 
+    points: [
+      "Coconut trees for steady yearly income.", 
+      "Mango trees for seasonal profit.", 
+      "Teak and sandalwood for high-value long-term gains.", 
+      "Organic vegetable farming for extra income."
+    ] 
+  },
 ];
 
 const processSteps = [
     { number: "01", title: "Purchase", description: "You purchase pure, empty farmland from us." },
     { number: "02", title: "Develop", description: "We develop it according to our master plan: traditional home construction, plantation of money-making trees, and organic garden setup." },
-    { number: "03", title: "Enjoy", description: "You enjoy Peace, Wealth, and Health for years to come." },
+    { number: "03", title: "Enjoy", description: "You enjoy Peace, Health, and Wealth for years to come." },
 ];
 
 export default function Home() {
@@ -79,7 +79,7 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-black/50 z-10"></div>
     <div className="relative z-20 max-w-4xl mx-auto px-4">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
-        RK FARM LAND – Peace. Wealth. Health.
+        RK FARM LAND – Peace. Health. Wealth.
       </h1>
       <p className="text-lg md:text-xl lg:text-2xl mb-8" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}>
         Buy pure farmland today. We develop it into a green estate with homes, plantations, and gardens tomorrow.
@@ -115,7 +115,7 @@ const WhyChooseUsSection = () => (
 const PromiseSection = () => (
     <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Our Peace + Wealth + Health Promise</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Our Peace + Health + Wealth Promise</h2>
             <div className="grid md:grid-cols-3 gap-8">
                 {promiseItems.map((item) => (
                     <Card key={item.title} className="bg-card text-card-foreground shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -194,5 +194,3 @@ const ContactSection = () => (
     </div>
   </section>
 );
-
-    

@@ -26,7 +26,7 @@ export default function AboutPage() {
               The RK FARM LAND Difference
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              What sets us apart is our commitment to a holistic lifestyle. We take care of every detail, from the initial land purchase to the final development of your green estate. Our process ensures that your investment is not just a piece of property, but a vibrant, living ecosystem tailored for a life of Peace, Wealth, and Health. We are more than just land developers; we are partners in your journey toward a better, more natural future.
+              What sets us apart is our commitment to a holistic lifestyle. We take care of every detail, from the initial land purchase to the final development of your green estate. Our process ensures that your investment is not just a piece of property, but a vibrant, living ecosystem tailored for a life of Peace, Health, and Wealth. We are more than just land developers; we are partners in your journey toward a better, more natural future.
             </p>
           </div>
         </div>

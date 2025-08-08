@@ -5,7 +5,7 @@ import { Footer } from '@/components/shared/Footer';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'RK FARM LAND - Peace. Wealth. Health.',
+  title: 'RK FARM LAND - Peace. Health. Wealth.',
   description: 'Invest in nature. Grow your future.',
 };
 
