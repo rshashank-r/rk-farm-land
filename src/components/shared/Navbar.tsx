@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Phone, Sprout } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -32,6 +33,7 @@ export function Navbar() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-4">
+           <ThemeToggle />
           <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
             <a href="tel:+910000000000">
               <Phone className="mr-2 h-4 w-4" />
@@ -39,7 +41,8 @@ export function Navbar() {
             </a>
           </Button>
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+           <ThemeToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="border-muted-foreground/50">
