@@ -1,112 +1,98 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { useForm, ValidationError } from '@formspree/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import { ArrowRight } from 'lucide-react';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useToast } from '@/hooks/use-toast';
-
-const FormSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  phone: z.string().regex(/^\d{10,15}$/, { message: 'Please enter a valid phone number.' }),
-  email: z.string().email({ message: 'Please enter a valid email address.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
-});
-
-export type Inquiry = z.infer<typeof FormSchema>;
 
 export default function ContactForm() {
-  const { toast } = useToast();
-  const form = useForm<Inquiry>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      name: '',
-      phone: '',
-      email: '',
-      message: '',
-    },
-  });
+  const [state, handleSubmit] = useForm("mwpqwjoz");
 
-  const onSubmit = async (data: Inquiry) => {
-    // This is a client-side only submission for Formspree
-    // The form action will handle the actual submission.
-    // We can show a toast and reset the form here if we want,
-    // but Formspree will redirect to a thank you page by default.
-    toast({
-      title: "Inquiry Submitting...",
-      description: "You will be redirected after submission.",
-    });
+  if (state.succeeded) {
+    return (
+      <div className="text-center">
+        <h3 className="text-2xl font-headline font-semibold text-primary mb-2">Thank you!</h3>
+        <p className="text-muted-foreground">Your inquiry has been sent successfully. We will get back to you shortly.</p>
+      </div>
+    );
   }
-  
+
   return (
-    <Form {...form}>
-        <form 
-          action="https://formspree.io/f/YOUR_FORM_ID" // IMPORTANT: Replace with your Formspree form ID
-          method="POST"
-          onSubmit={form.handleSubmit(onSubmit)} 
-          className="mx-auto max-w-xl space-y-6"
-        >
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your Name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone</FormLabel>
-                <FormControl>
-                  <Input type="tel" placeholder="Your Phone Number" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="Your Email Address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea placeholder="Your Message" rows={5} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit" disabled={form.formState.isSubmitting} size="lg" className="w-full">
-            {form.formState.isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
-            <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-        </form>
-    </Form>
+    <form onSubmit={handleSubmit} className="mx-auto max-w-xl space-y-6">
+      <div className="space-y-2">
+        <Label htmlFor="name">Name</Label>
+        <Input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <ValidationError
+          prefix="Name"
+          field="name"
+          errors={state.errors}
+          className="text-sm font-medium text-destructive"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="phone">Phone</Label>
+        <Input
+          id="phone"
+          type="tel"
+          name="phone"
+          placeholder="Your Phone Number"
+          required
+        />
+        <ValidationError
+          prefix="Phone"
+          field="phone"
+          errors={state.errors}
+           className="text-sm font-medium text-destructive"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="email">Email Address</Label>
+        <Input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Your Email Address"
+          required
+        />
+        <ValidationError
+          prefix="Email"
+          field="email"
+          errors={state.errors}
+           className="text-sm font-medium text-destructive"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          rows={5}
+          required
+        />
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+           className="text-sm font-medium text-destructive"
+        />
+      </div>
+
+      <Button type="submit" disabled={state.submitting} size="lg" className="w-full">
+        {state.submitting ? 'Submitting...' : 'Submit Inquiry'}
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </Button>
+    </form>
   );
 }
