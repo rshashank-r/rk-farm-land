@@ -14,7 +14,7 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Phone className="h-6 w-6 text-accent" />
-                <a href="tel:+910000000000" className="text-lg hover:underline text-muted-foreground">+91 (000) 000-0000</a>
+                <a href="tel:+910000000000" className="text-lg hover:underline text-muted-foreground">+91 97*******28</a>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-6 w-6 text-accent" />
