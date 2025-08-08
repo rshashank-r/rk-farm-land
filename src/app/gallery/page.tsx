@@ -1,0 +1,66 @@
+import Image from 'next/image';
+import { Card, CardContent } from '@/components/ui/card';
+
+const galleryItems = [
+  {
+    title: 'Full Estate View',
+    description: 'An aerial view of a lush, planned farmland estate with traditional houses, surrounded by coconut, mango, teak, and sandalwood trees. The image features organic gardens, natural pathways, full greenery, and a bright, sunny day. It must be realistic and without visible plot lines.',
+    src: 'https://placehold.co/1200x800.png',
+    aiHint: 'farmland estate aerial'
+  },
+  {
+    title: 'Single Plot Concept',
+    description: 'A traditional single-floor rural home in the middle of a 10,000 sq ft green plot. The home should be surrounded by coconut, mango, teak, and sandalwood trees, with a small organic vegetable garden. The image should be high-resolution with natural lighting.',
+    src: 'https://placehold.co/1200x800.png',
+    aiHint: 'rural home garden'
+  },
+  {
+    title: 'Organic Garden Close-up',
+    description: 'A close-up shot of a fresh organic vegetable garden with wooden fencing. Fruit trees should be visible in the background, with sunlight filtering through the leaves. The style should be realistic.',
+    src: 'https://placehold.co/1200x800.png',
+    aiHint: 'organic garden'
+  },
+  {
+    title: 'Health & Nature Scene',
+    description: 'A family harvesting fresh vegetables in a green farmland, surrounded by fruit and timber trees. The scene should depict a bright, sunny, and peaceful environment in a realistic style.',
+    src: 'https://placehold.co/1200x800.png',
+    aiHint: 'family harvesting vegetables'
+  },
+];
+
+export default function GalleryPage() {
+  return (
+    <div className="bg-background py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary">Concept Gallery</h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            These AI-generated renders showcase our vision for your future at RK FARM LAND, not specific plot divisions.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {galleryItems.map((item) => (
+            <Card key={item.title} className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+              <CardContent className="p-0">
+                <div className="aspect-w-4 aspect-h-3 relative">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="group-hover:scale-105 transition-transform duration-500"
+                    data-ai-hint={item.aiHint}
+                  />
+                </div>
+                <div className="p-6 bg-card">
+                  <h3 className="text-2xl font-headline font-semibold text-accent mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
