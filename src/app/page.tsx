@@ -95,17 +95,18 @@ const HeroSection = () => (
 );
 
 const WhyChooseUsSection = () => (
-  <section className="py-16 md:py-24 bg-background">
-    <div className="container mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Why Choose RK FARM LAND?</h2>
+  <section className="relative py-16 md:py-24 text-white bg-cover bg-center bg-fixed" style={{backgroundImage: "url('https://placehold.co/1920x1080.png')"}} data-ai-hint="lush farmland">
+    <div className="absolute inset-0 bg-primary/80"></div>
+    <div className="container mx-auto px-4 relative z-10">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose RK FARM LAND?</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
         {whyChooseUsItems.map((item) => (
           <div key={item.text} className="flex flex-col items-center">
-            <div className="bg-primary/10 p-4 rounded-full mb-4">
-              <item.icon className="h-8 w-8 text-primary" />
+            <div className="bg-white/20 p-4 rounded-full mb-4 backdrop-blur-sm">
+              <item.icon className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-headline font-semibold mb-2 text-gray-700">{item.text}</h3>
-            <p className="text-muted-foreground">{item.description}</p>
+            <h3 className="text-xl font-headline font-semibold mb-2">{item.text}</h3>
+            <p className="text-gray-200">{item.description}</p>
           </div>
         ))}
       </div>
@@ -114,29 +115,31 @@ const WhyChooseUsSection = () => (
 );
 
 const PromiseSection = () => (
-  <section className="py-16 md:py-24 bg-card">
-    <div className="container mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Our Peace + Wealth + Health Promise</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {promiseItems.map((item) => (
-          <Card key={item.title} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <item.icon className="h-10 w-10 text-primary" />
-              <CardTitle className="text-2xl">{item.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 list-disc list-inside text-muted-foreground">
-                {item.points.map((point) => (
-                  <li key={point}>{point}</li>
+    <section className="relative py-16 md:py-24 bg-cover bg-center bg-fixed" style={{backgroundImage: "url('https://placehold.co/1920x1080.png')"}} data-ai-hint="fruit trees">
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="container mx-auto px-4 relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Our Peace + Wealth + Health Promise</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+                {promiseItems.map((item) => (
+                    <Card key={item.title} className="bg-card/80 backdrop-blur-sm border-white/20 text-card-foreground shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <CardHeader className="flex flex-row items-center gap-4">
+                            <item.icon className="h-10 w-10 text-primary" />
+                            <CardTitle className="text-2xl text-white">{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ul className="space-y-2 list-disc list-inside text-gray-200">
+                                {item.points.map((point) => (
+                                    <li key={point}>{point}</li>
+                                ))}
+                            </ul>
+                        </CardContent>
+                    </Card>
                 ))}
-              </ul>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
+            </div>
+        </div>
+    </section>
 );
+
 
 const ProcessSection = () => (
   <section className="py-16 md:py-24 bg-background">
