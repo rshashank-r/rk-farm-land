@@ -20,19 +20,19 @@ const galleryItems = [
   {
     title: 'Single Plot Concept',
     description: 'A traditional single-floor rural home in the middle of a 10,000 sq ft green plot with surrounding trees and a small garden.',
-    src: 'https://placehold.co/1200/675',
+    src: '/images/single_plot.jpg',
     aiHint: 'rural home garden'
   },
   {
     title: 'Organic Garden Close-up',
     description: 'A close-up shot of a fresh organic vegetable garden with wooden fencing and fruit trees in the background.',
-    src: 'https://placehold.co/1200/675',
+    src: '/images/vegetable_garden.jpg',
     aiHint: 'organic garden'
   },
   {
     title: 'Health & Nature Scene',
     description: 'A family harvesting fresh vegetables in a green farmland, surrounded by fruit and timber trees.',
-    src: 'https://placehold.co/1200/675',
+    src: '/images/family_in_guraden.jpg',
     aiHint: 'family harvesting vegetables'
   },
 ];
