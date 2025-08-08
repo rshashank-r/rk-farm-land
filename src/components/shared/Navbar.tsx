@@ -12,7 +12,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/#about', label: 'About' },
   { href: '/#gallery', label: 'Concept Gallery' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export function Navbar() {
