@@ -1,14 +1,11 @@
 'use client';
 
-import { useEffect, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { submitInquiry } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from "@/hooks/use-toast"
 import { ArrowRight } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
@@ -19,15 +16,7 @@ const FormSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
-const initialState = {
-  message: null,
-  errors: {},
-  success: false,
-};
-
-
 export default function ContactForm() {
-  const [state, formAction] = useActionState(submitInquiry, initialState);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -37,29 +26,17 @@ export default function ContactForm() {
       message: '',
     },
   });
-  const { toast } = useToast();
 
-  useEffect(() => {
-    if (state.message) {
-      if (state.success) {
-        toast({
-          title: "Success!",
-          description: state.message,
-        });
-        form.reset();
-      } else {
-        toast({
-          title: "Error",
-          description: state.message,
-          variant: "destructive",
-        });
-      }
-    }
-  }, [state, toast, form]);
+  const onSubmit = () => {
+    // This is where you would handle form submission,
+    // like sending the data to an API endpoint.
+    // Since submission logic is removed, we can just log the data for now.
+    console.log('Form submitted!');
+  }
   
   return (
     <Form {...form}>
-        <form action={formAction} className="mx-auto max-w-xl space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto max-w-xl space-y-6">
           <FormField
             control={form.control}
             name="name"
