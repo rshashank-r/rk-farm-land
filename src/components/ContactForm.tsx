@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useFormState, useForm } from 'react-hook-form';
+import { useFormState } from 'react-dom';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { submitInquiry } from '@/app/actions';
@@ -10,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from "@/hooks/use-toast"
 import { ArrowRight } from 'lucide-react';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 const FormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -24,17 +26,6 @@ const initialState = {
   success: false,
 };
 
-function SubmitButton() {
-    const { formState } = useFormContext();
-    return (
-        <Button type="submit" disabled={formState.isSubmitting} size="lg">
-            {formState.isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
-            <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-    )
-}
-
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useFormContext } from "@/components/ui/form";
 
 export default function ContactForm() {
   const [state, formAction] = useFormState(submitInquiry, initialState);

@@ -4,25 +4,25 @@ import { Card, CardContent } from '@/components/ui/card';
 const galleryItems = [
   {
     title: 'Full Estate View',
-    description: 'An aerial view of a lush, planned farmland estate with traditional houses, surrounded by coconut, mango, teak, and sandalwood trees. The image features organic gardens, natural pathways, full greenery, and a bright, sunny day. It must be realistic and without visible plot lines.',
+    description: 'An aerial view of a lush, planned farmland estate with traditional houses, surrounded by coconut, mango, teak, and sandalwood trees.',
     src: 'https://placehold.co/1200x800.png',
     aiHint: 'farmland estate aerial'
   },
   {
     title: 'Single Plot Concept',
-    description: 'A traditional single-floor rural home in the middle of a 10,000 sq ft green plot. The home should be surrounded by coconut, mango, teak, and sandalwood trees, with a small organic vegetable garden. The image should be high-resolution with natural lighting.',
+    description: 'A traditional single-floor rural home in the middle of a 10,000 sq ft green plot with surrounding trees and a small garden.',
     src: 'https://placehold.co/1200x800.png',
     aiHint: 'rural home garden'
   },
   {
     title: 'Organic Garden Close-up',
-    description: 'A close-up shot of a fresh organic vegetable garden with wooden fencing. Fruit trees should be visible in the background, with sunlight filtering through the leaves. The style should be realistic.',
+    description: 'A close-up shot of a fresh organic vegetable garden with wooden fencing and fruit trees in the background.',
     src: 'https://placehold.co/1200x800.png',
     aiHint: 'organic garden'
   },
   {
     title: 'Health & Nature Scene',
-    description: 'A family harvesting fresh vegetables in a green farmland, surrounded by fruit and timber trees. The scene should depict a bright, sunny, and peaceful environment in a realistic style.',
+    description: 'A family harvesting fresh vegetables in a green farmland, surrounded by fruit and timber trees.',
     src: 'https://placehold.co/1200x800.png',
     aiHint: 'family harvesting vegetables'
   },
@@ -35,7 +35,7 @@ export default function GalleryPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-primary">Concept Gallery</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            These AI-generated renders showcase our vision for your future at RK FARM LAND, not specific plot divisions.
+            These renders showcase our vision for your future at RK FARM LAND.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
