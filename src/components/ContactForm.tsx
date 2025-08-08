@@ -8,6 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowRight } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from '@/hooks/use-toast';
+import { submitInquiry } from '@/app/actions/contact';
 
 const FormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -16,8 +18,11 @@ const FormSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
+export type Inquiry = z.infer<typeof FormSchema>;
+
 export default function ContactForm() {
-  const form = useForm<z.infer<typeof FormSchema>>({
+  const { toast } = useToast();
+  const form = useForm<Inquiry>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: '',
@@ -27,11 +32,21 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = () => {
-    // This is where you would handle form submission,
-    // like sending the data to an API endpoint.
-    // Since submission logic is removed, we can just log the data for now.
-    console.log('Form submitted!');
+  const onSubmit = async (data: Inquiry) => {
+    try {
+      await submitInquiry(data);
+      toast({
+        title: "Inquiry Sent!",
+        description: "Thank you for your message. We will get back to you shortly.",
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
   
   return (
