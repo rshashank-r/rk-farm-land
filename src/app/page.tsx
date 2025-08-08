@@ -11,7 +11,6 @@ const whyChooseUsItems = [
   { icon: Zap, text: "24/7 Power Supply", description: "Reliable electricity for homes and farming." },
   { icon: Milestone, text: "Good Road Connectivity", description: "Easy travel and transport for goods." },
   { icon: Sprout, text: "Full Greenery", description: "Surrounded by fresh air and scenic beauty." },
-  { icon: ShieldCheck, text: "Safe Area", description: "Secure environment with friendly neighbors." },
 ];
 
 const promiseItems = [
@@ -98,7 +97,7 @@ const WhyChooseUsSection = () => (
   <section className="py-16 md:py-24 bg-card">
     <div className="container mx-auto px-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Why Choose RK FARM LAND?</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         {whyChooseUsItems.map((item) => (
           <div key={item.text} className="flex flex-col items-center p-4">
              <div className="bg-primary/10 p-4 rounded-full mb-4">
