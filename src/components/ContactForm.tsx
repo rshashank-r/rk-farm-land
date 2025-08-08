@@ -9,7 +9,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { ArrowRight } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from '@/hooks/use-toast';
-import { submitInquiry } from '@/app/actions/contact';
 
 const FormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -33,25 +32,24 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: Inquiry) => {
-    try {
-      await submitInquiry(data);
-      toast({
-        title: "Inquiry Sent!",
-        description: "Thank you for your message. We will get back to you shortly.",
-      });
-      form.reset();
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    }
+    // This is a client-side only submission for Formspree
+    // The form action will handle the actual submission.
+    // We can show a toast and reset the form here if we want,
+    // but Formspree will redirect to a thank you page by default.
+    toast({
+      title: "Inquiry Submitting...",
+      description: "You will be redirected after submission.",
+    });
   }
   
   return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto max-w-xl space-y-6">
+        <form 
+          action="https://formspree.io/f/YOUR_FORM_ID" // IMPORTANT: Replace with your Formspree form ID
+          method="POST"
+          onSubmit={form.handleSubmit(onSubmit)} 
+          className="mx-auto max-w-xl space-y-6"
+        >
           <FormField
             control={form.control}
             name="name"
