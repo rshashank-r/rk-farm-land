@@ -1,42 +1,22 @@
 'use client';
 
-import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps';
-import { Sprout } from 'lucide-react';
-
 export default function GoogleMap() {
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-    // Using a placeholder location. Replace with actual coordinates.
-    const position = { lat: 12.9716, lng: 77.5946 }; 
-
-    if (!apiKey) {
-        return (
-            <div className="w-full h-96 bg-muted flex items-center justify-center rounded-lg">
-                <p className="text-muted-foreground p-4 text-center">
-                    Google Maps cannot be displayed. The API Key is missing.
-                    <br />
-                    Please add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to your .env.local file.
-                </p>
-            </div>
-        );
-    }
+    const lat = 17.729011;
+    const lng = 78.254205;
+    const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.539213948254!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcc94f3458ffffff%3A0x8af5362438521191!2sRK%20Farm%20Lands!5e0!3m2!1sen!2sin!4v1628520978912!5m2!1sen!2sin`;
 
     return (
-        <APIProvider apiKey={apiKey}>
-            <div className="w-full h-96">
-                <Map
-                    defaultCenter={position}
-                    defaultZoom={9}
-                    mapId="rk-farm-land-map"
-                    gestureHandling={'greedy'}
-                    disableDefaultUI={true}
-                >
-                    <AdvancedMarker position={position} title={"RK Farm Land (Approx. Location)"}>
-                        <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground shadow-lg">
-                            <Sprout size={20} />
-                        </div>
-                    </AdvancedMarker>
-                </Map>
-            </div>
-        </APIProvider>
+        <div className="w-full h-96 bg-muted flex items-center justify-center rounded-lg overflow-hidden">
+            <iframe
+                src={embedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="RK Farm Land Location"
+            ></iframe>
+        </div>
     );
 }
