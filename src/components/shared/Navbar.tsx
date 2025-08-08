@@ -27,7 +27,11 @@ export function Navbar() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            <Link 
+              key={link.href} 
+              href={link.href} 
+              className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-primary after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100"
+            >
               {link.label}
             </Link>
           ))}
@@ -45,13 +49,13 @@ export function Navbar() {
            <ThemeToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="border-muted-foreground/50">
+              <Button variant="outline" size="icon" className="border-accent text-accent">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[240px] bg-card">
-               <SheetTitle className="sr-only">Menu</SheetTitle>
+               <SheetTitle>Menu</SheetTitle>
               <div className="flex flex-col p-6 pt-2">
                 <div className="p-4 border-b mb-4">
                     <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary" onClick={() => setIsOpen(false)}>
