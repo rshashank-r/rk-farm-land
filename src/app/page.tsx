@@ -141,7 +141,7 @@ const WhyChooseUsSection = () => (
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Why Choose RK FARM LAND?</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         {whyChooseUsItems.map((item) => (
-          <div key={item.text} className="flex flex-col items-center p-4">
+          <div key={item.text} className="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-105">
              <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <item.icon className="h-8 w-8 text-primary" />
             </div>
@@ -160,7 +160,7 @@ const PromiseSection = () => (
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Our Peace + Health + Wealth Promise</h2>
             <div className="grid md:grid-cols-3 gap-8">
                 {promiseItems.map((item) => (
-                    <Card key={item.title} className="bg-card text-card-foreground shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <Card key={item.title} className="bg-card text-card-foreground shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="p-3 bg-primary/10 rounded-full">
                                 <item.icon className="h-8 w-8 text-primary" />
@@ -191,7 +191,7 @@ const ProcessSection = () => (
           <div className="grid md:grid-cols-3 gap-12 md:gap-8">
               {processSteps.map((step, index) => (
                   <div key={step.number} className={`flex flex-col items-center text-center md:items-start md:text-left ${index === 1 ? 'md:items-center md:text-center' : ''} ${index === 2 ? 'md:items-end md:text-right' : ''}`}>
-                      <div className="flex items-center justify-center w-20 h-20 rounded-full bg-background border-4 border-primary mb-6 z-10">
+                      <div className="flex items-center justify-center w-20 h-20 rounded-full bg-background border-4 border-primary mb-6 z-10 transition-transform duration-300 hover:scale-110">
                           <span className="text-3xl font-bold text-primary">{step.number}</span>
                       </div>
                       <h3 className="text-2xl font-headline font-bold mb-3 text-accent">{step.title}</h3>
