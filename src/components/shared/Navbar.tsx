@@ -49,14 +49,16 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[240px] bg-card">
                <SheetTitle className="sr-only">Menu</SheetTitle>
-              <div className="flex flex-col p-6">
-                <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary mb-8" onClick={() => setIsOpen(false)}>
-                  <Sprout className="h-6 w-6" />
-                  <span className="font-headline">RK FARM LAND</span>
-                </Link>
-                <nav className="flex flex-col gap-4">
+              <div className="flex flex-col p-6 pt-2">
+                <div className="p-4 border-b mb-4">
+                    <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary" onClick={() => setIsOpen(false)}>
+                      <Sprout className="h-6 w-6" />
+                      <span className="font-headline">RK FARM LAND</span>
+                    </Link>
+                </div>
+                <nav className="flex flex-col gap-2">
                   {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="text-base font-medium text-muted-foreground transition-colors hover:text-primary" onClick={() => setIsOpen(false)}>
+                    <Link key={link.href} href={link.href} className="text-base font-medium text-muted-foreground transition-colors hover:text-primary p-4 border-b" onClick={() => setIsOpen(false)}>
                       {link.label}
                     </Link>
                   ))}
