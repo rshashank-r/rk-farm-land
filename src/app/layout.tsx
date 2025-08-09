@@ -4,6 +4,8 @@ import { Navbar } from '@/components/shared/Navbar';
 import { Footer } from '@/components/shared/Footer';
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { Button } from '@/components/ui/button';
+import { Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'RK FARM LAND - Peace. Health. Wealth.',
@@ -33,6 +35,12 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <Toaster />
+          <Button asChild className="md:hidden fixed bottom-4 right-4 z-50 h-16 w-16 rounded-full shadow-lg" size="icon">
+            <a href="tel:+910000000000">
+              <Phone className="h-6 w-6" />
+              <span className="sr-only">Call Now</span>
+            </a>
+          </Button>
         </ThemeProvider>
       </body>
     </html>
