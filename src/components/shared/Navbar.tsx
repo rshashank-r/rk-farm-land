@@ -23,7 +23,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-card/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/images/logo.png" alt="RK FARM LAND Logo" width={140} height={70} />
+          <p className="text-2xl font-bold font-headline text-primary">RK FARM LAND</p>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
@@ -59,7 +59,7 @@ export function Navbar() {
               <div className="flex flex-col p-6 pt-2">
                 <div className="p-4 border-b mb-4">
                     <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                      <Image src="/images/logo.png" alt="RK FARM LAND Logo" width={140} height={70} />
+                       <p className="text-2xl font-bold font-headline text-primary">RK FARM LAND</p>
                     </Link>
                 </div>
                 <nav className="flex flex-col">
