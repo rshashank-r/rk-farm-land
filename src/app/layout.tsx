@@ -36,7 +36,7 @@ export default function RootLayout({
           <Footer />
           <Toaster />
           <Button asChild className="md:hidden fixed bottom-4 right-4 z-50 h-16 w-16 rounded-full shadow-lg" size="icon">
-            <a href="tel:+910000000000">
+            <a href="tel:+919740006528">
               <Phone className="h-6 w-6" />
               <span className="sr-only">Call Now</span>
             </a>
